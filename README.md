@@ -7,6 +7,7 @@ nutzen. Jedes Script ist einzeln installierbar, versioniert und aktualisiert sic
 |---|---|---|---|
 | e-netz Installateurportal – Bitwarden-Fix | e-netz-suedhessen.de/installateurportal | Löst das veraltete Frameset auf und setzt `autocomplete`-Attribute, damit Bitwarden Icon und Auswahlliste anzeigt | [installieren](https://raw.githubusercontent.com/mod42/installateur-userscripts/main/enetz-installateurportal-bitwarden.user.js) |
 | UNI ELEKTRO – Bitwarden-Fix | unielektro.de | Entfernt das doppelte (versteckte) Login-Formular auf `/login` und ersetzt `autocomplete="off"` durch korrekte Werte | [installieren](https://raw.githubusercontent.com/mod42/installateur-userscripts/main/unielektro-bitwarden.user.js) |
+| Wagner Solar – Bitwarden-Fix | shop.wagner-solar.com | Setzt `autocomplete`-Attribute am per React nachgeladenen Login-Formular (Passwortfeld hat `autocomplete="off"`) | [installieren](https://raw.githubusercontent.com/mod42/installateur-userscripts/main/wagner-solar-bitwarden.user.js) |
 | Reonic – Suchfeld leeren (×) | portal.reonic.de | Fügt Suchfeldern ein × zum Löschen des Suchbegriffs hinzu; Esc leert das Feld ebenfalls | [installieren](https://raw.githubusercontent.com/mod42/installateur-userscripts/main/reonic-search-clear.user.js) |
 
 ## Installation
@@ -31,6 +32,12 @@ einblenden. Das Script lädt den Frame-Inhalt direkt als Hauptseite.
 Auf `/login` existieren zwei Login-Formulare mit identischer Passwort-Feld-ID (sichtbares Seitenformular und
 verstecktes Header-Popup). Bitwarden kann dadurch das unsichtbare Formular füllen. Hinweis: Das Popup-Login
 wird per JavaScript abgeschickt, daher bietet Bitwarden dort ggf. kein Speichern neuer Passwörter an.
+
+### Wagner Solar
+
+Das Login-Formular (Sana Commerce, React) wird erst nach dem Laden gerendert, bekommt bei jedem Aufruf
+zufällige Feld-IDs und markiert das Passwortfeld mit `autocomplete="off"`. Das Script setzt die korrekten
+Werte, auch wenn das Formular später (z. B. im Checkout) erneut erscheint.
 
 ### Reonic
 
